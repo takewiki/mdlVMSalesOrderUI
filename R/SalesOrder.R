@@ -67,7 +67,7 @@ SalesOrderUI_left <- function() {
 SalesOrderUI_right <- function() {
   res <- tagList(
 
-    shiny::actionButton(inputId = 'btn_SalesOrder_view',label = 'Query'),
+    shiny::actionButton(inputId = 'btn_SalesOrder_view',label = 'Search'),
 
     tsui::mdl_download_button(id = 'dl_SalesOrder',label = 'Download')
 
