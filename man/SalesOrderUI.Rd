@@ -6,7 +6,7 @@
 \usage{
 SalesOrderUI(
   tabTitle = "Sales Order",
-  colTitles = c("Filter Area", "Operation Area", "Result Area"),
+  colTitles = c("Operation Area", "Column Setting", "Result Area"),
   widthRates = c(6, 6, 12),
   func_left = SalesOrderUI_left,
   func_right = SalesOrderUI_right,

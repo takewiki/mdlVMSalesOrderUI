@@ -1,3 +1,26 @@
+library(shiny)
+library(DT)
+library(shinyWidgets)
+SalesOrder_all_columns_ui <- c(
+  'Sales OrderID',
+  'Delivery Location',
+  'PN',
+  'Product Name',
+  'Serial Number',
+  'Sales OrderQty',
+  'Production Date',
+  'Sales OrderID2',
+  'Delivery Date',
+  'Total DeliveryQty'
+)
+#设置默认值
+SalesOrder_default_columns_ui <- c(
+  'Sales OrderID',
+  'Delivery Location',
+  'PN',
+  'Product Name',
+  'Serial Number'
+)
 #' 序列号查询生成器界面
 #'
 #' @param colTitles  主页标题
@@ -14,7 +37,7 @@
 #' @examples
 #' SalesOrderUI()
 SalesOrderUI <- function(tabTitle ='Sales Order',
-                           colTitles =c('Filter Area','Operation Area','Result Area'),
+                           colTitles =c('Operation Area','Column Setting','Result Area'),
                            widthRates =c(6,6,12),
                            func_left = SalesOrderUI_left,
                            func_right =SalesOrderUI_right,
@@ -42,7 +65,10 @@ SalesOrderUI_left <- function() {
 
 
   res <- tagList(
-    tsui::mdl_text2(id ='text_SalesOrder' ,label ='Sales Order',value = '')
+    tsui::mdl_text2(id ='text_SalesOrder' ,label ='Sales Order',value = ''),
+    shiny::actionButton(inputId = 'btn_SalesOrder_view',label = 'Search'),
+
+    tsui::mdl_download_button(id = 'dl_SalesOrder',label = 'Download')
 
 
 
@@ -66,10 +92,34 @@ SalesOrderUI_left <- function() {
 #' SalesOrderUI_bottom()
 SalesOrderUI_right <- function() {
   res <- tagList(
+    pickerInput(
+      inputId = "SalesOrder_column_selector",
+      label = "Selected Columns:",
+      choices = SalesOrder_all_columns_ui,
+      selected = SalesOrder_default_columns_ui,
+      options = list(
+        `actions-box` = TRUE,
+        `selected-text-format` = "count > 3",
+        `count-selected-text` = "{0} Columns Seleced",
+        size = 10,
+        `live-search` = TRUE,
+        `live-search-style` = "contains"
+      ),
+      multiple = TRUE,
+      choicesOpt = list(
+        style = rep(("color: black;"), 100)
+      )
+    ),
+    # 全选/取消全选按钮
+    actionButton("btn_SalesOrder_select_all", "Select All",
+                 class = "btn-primary btn-sm",
+                 style = "margin-right: 5px;"),
+    actionButton("btn_SalesOrder_deselect_all", "Deselect All",
+                 class = "btn-secondary btn-sm"),
+    actionButton("btn_SalesOrder_defaultValue", "Default Value",
+                 class = "btn-primary btn-sm"),
+    verbatimTextOutput("SalesOrder_selection_info")
 
-    shiny::actionButton(inputId = 'btn_SalesOrder_view',label = 'Search'),
-
-    tsui::mdl_download_button(id = 'dl_SalesOrder',label = 'Download')
 
 
 
