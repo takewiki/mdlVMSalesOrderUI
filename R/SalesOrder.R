@@ -8,10 +8,10 @@ SalesOrder_all_columns_ui <- c(
   'Product Name',
   'Serial Number',
   'Sales OrderQty',
-  'Production Date',
-  'Sales OrderID2',
-  'Delivery Date',
-  'Total DeliveryQty'
+  'Production Date'
+ # 'Sales OrderID2',
+ # 'Delivery Date',
+  #'Total DeliveryQty'
 )
 #设置默认值
 SalesOrder_default_columns_ui <- c(
@@ -19,7 +19,8 @@ SalesOrder_default_columns_ui <- c(
   'Delivery Location',
   'PN',
   'Product Name',
-  'Serial Number'
+  'Serial Number',
+  'Delivery Date'
 )
 #' 序列号查询生成器界面
 #'
@@ -100,7 +101,8 @@ SalesOrderUI_right <- function() {
       options = list(
         `actions-box` = TRUE,
         `selected-text-format` = "count > 3",
-        `count-selected-text` = "{0} Columns Seleced",
+       # `count-selected-text` = "{0} Columns Seleced",
+        `count-selected-text` = "Default Value",
         size = 10,
         `live-search` = TRUE,
         `live-search-style` = "contains"
@@ -114,11 +116,12 @@ SalesOrderUI_right <- function() {
     actionButton("btn_SalesOrder_select_all", "Select All",
                  class = "btn-primary btn-sm",
                  style = "margin-right: 5px;"),
-    actionButton("btn_SalesOrder_deselect_all", "Deselect All",
-                 class = "btn-secondary btn-sm"),
+    # actionButton("btn_SalesOrder_deselect_all", "Deselect All",
+    #              class = "btn-secondary btn-sm"),
     actionButton("btn_SalesOrder_defaultValue", "Default Value",
-                 class = "btn-primary btn-sm"),
-    verbatimTextOutput("SalesOrder_selection_info")
+                 class = "btn-primary btn-sm")
+    #verbatimTextOutput("SalesOrder_selection_info")
+
 
 
 
