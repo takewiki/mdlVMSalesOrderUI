@@ -5,7 +5,7 @@
 \alias{SalesOrder_all_columns_ui}
 \title{Total DeliveryQty'}
 \format{
-An object of class \code{character} of length 7.
+An object of class \code{character} of length 8.
 }
 \usage{
 SalesOrder_all_columns_ui

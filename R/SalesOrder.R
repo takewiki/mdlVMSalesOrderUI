@@ -3,24 +3,27 @@ library(DT)
 library(shinyWidgets)
 SalesOrder_all_columns_ui <- c(
   'Sales OrderID',
-  'Delivery Location',
   'PN',
   'Product Name',
   'Serial Number',
+  'Delivery Date',
+  'Delivery Location',
   'Sales OrderQty',
   'Production Date'
  # 'Sales OrderID2',
- # 'Delivery Date',
+
   #'Total DeliveryQty'
 )
 #设置默认值
 SalesOrder_default_columns_ui <- c(
   'Sales OrderID',
-  'Delivery Location',
   'PN',
   'Product Name',
   'Serial Number',
-  'Delivery Date'
+  'Delivery Date',
+  'Delivery Location'
+
+
 )
 #' 序列号查询生成器界面
 #'
