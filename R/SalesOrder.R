@@ -102,7 +102,7 @@ SalesOrderUI_right <- function() {
       choices = SalesOrder_all_columns_ui,
       selected = SalesOrder_default_columns_ui,
       options = list(
-        `actions-box` = TRUE,
+        `actions-box` = FALSE,
         `selected-text-format` = "count > 3",
        # `count-selected-text` = "{0} Columns Seleced",
         `count-selected-text` = "Default Value",
