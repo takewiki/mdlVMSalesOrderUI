@@ -2,8 +2,8 @@
 
 export(SalesOrderExportUI)
 export(SalesOrderExportUI_bottom)
-export(SalesOrderExportUI_left)
 export(SalesOrderExportUI_right)
+export(SalesOrderExport_row_ui)
 export(SalesOrderUI)
 export(SalesOrderUI_bottom)
 export(SalesOrderUI_left)
